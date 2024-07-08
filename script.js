@@ -61,6 +61,7 @@ main.innerHTML = cardHTML
   
 }
 
+//Function to create Error card
 function createErrorCard(msg) {
     const cardHTML = `
     <div class = "card">
@@ -70,6 +71,39 @@ function createErrorCard(msg) {
     `
     main.innerHTML = cardHTML  
 }
+
+
+//function to add repository details to HTML card 
+function addReposToCard (repos) {
+    const reposEl = document.getElementById('repos')
+repos 
+.slice(0, 5)
+.foreach ( repo => {
+    const repoEl = document.createElement('a')
+    repoEl.classList.add('repo')
+    repoEl.href = repo.html_url
+    repoEl.target = '_blank'
+    repoEl.innerText = repo.name
+
+    reposEl.appendChild(repoEl)
+
+})
+
+}
+
+
+//add event listener for the search query 
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const user = search.value 
+
+    if(user) {
+        getUser(user)
+
+        search.value =''
+    }
+})
+
 
 
 
